@@ -59,16 +59,14 @@ class ReservationListItem extends Component {
     } else {
       content = this.props.renderEmptyDate(date);
     }
-
-    // todo: [mattnicolls 32018-01-16] this is where I've forked the code
-	// the point is to hide the container if the child content is null
-
-	return content !== null ? <View style={this.styles.container}>
-	  	{this.renderDate(date, reservation)}
-  		<View style={{flex:1}}>
-	  		{content}
-  		</View>
-	</View> : <View></View>;
+    return (
+      <View style={this.styles.container}>
+        {this.renderDate(date, reservation)}
+        <View style={{flex:1}}>
+          {content}
+        </View>
+      </View>
+    );
   }
 }
 
