@@ -67,7 +67,7 @@ class ReservationListItem extends Component {
     } else {
       return (
         <View style={this.styles.container}>
-          <Text>Empty</Text>
+          <View style={{height: 1}}></View>
         </View>
       );
     }
