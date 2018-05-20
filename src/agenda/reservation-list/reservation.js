@@ -66,7 +66,9 @@ class ReservationListItem extends Component {
       );
     } else {
       return (
-        <View style={this.styles.container}/>
+        <View style={this.styles.container}>
+          <Text>Empty</Text>
+        </View>
       );
     }
   }
