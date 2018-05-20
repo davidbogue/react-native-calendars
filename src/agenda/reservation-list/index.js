@@ -150,26 +150,41 @@ class ReactComp extends Component {
     if (!props.reservations || !props.selectedDay) {
       return {reservations: [], scrollPosition: 0};
     }
+    // let reservations = [];
+    // if (this.state.reservations && this.state.reservations.length) {
+    //   const iterator = this.state.reservations[0].day.clone();
+    //   while (iterator.getTime() < props.selectedDay.getTime()) {
+    //     const res = this.getReservationsForDay(iterator, props);
+    //     if (!res) {
+    //       reservations = [];
+    //       break;
+    //     } else {
+    //       reservations = reservations.concat(res);
+    //     }
+    //     iterator.addDays(1);
+    //   }
+    // }
+    // const scrollPosition = reservations.length;
+    // const iterator = props.selectedDay.clone();
+    // for (let i = 0; i < 31; i++) {
+    //   const res = this.getReservationsForDay(iterator, props);
+    //   if (res) {
+    //     reservations = reservations.concat(res);
+    //   }
+    //   iterator.addDays(1);
+    // }
+
     let reservations = [];
-    if (this.state.reservations && this.state.reservations.length) {
-      const iterator = this.state.reservations[0].day.clone();
-      while (iterator.getTime() < props.selectedDay.getTime()) {
-        const res = this.getReservationsForDay(iterator, props);
-        if (!res) {
-          reservations = [];
-          break;
-        } else {
-          reservations = reservations.concat(res);
-        }
-        iterator.addDays(1);
-      }
-    }
-    const scrollPosition = reservations.length;
-    const iterator = props.selectedDay.clone();
-    for (let i = 0; i < 31; i++) {
+    let scrollPosition = 0;
+    const iterator = this.props.reservations[0].day.clone();
+    const selectedDay = props.selectedDay.clone();
+    for (let i = 0; i < this.props.reservations.length; i++) {
       const res = this.getReservationsForDay(iterator, props);
       if (res) {
         reservations = reservations.concat(res);
+      }
+      if(iterator === selectedDay){
+        scrollPosition = i;
       }
       iterator.addDays(1);
     }
