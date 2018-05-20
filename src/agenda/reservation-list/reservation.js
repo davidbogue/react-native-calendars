@@ -68,7 +68,7 @@ class ReservationListItem extends Component {
   		<View style={{flex:1}}>
 	  		{content}
   		</View>
-	</View> : null;
+	</View> : <View></View>;
   }
 }
 
