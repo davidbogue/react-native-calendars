@@ -176,7 +176,7 @@ class ReactComp extends Component {
 
     let reservations = [];
     let scrollPosition = 0;
-    const iterator = this.props.reservations[0].day.clone();
+    const iterator = props.reservations[0].day.clone();
     const selectedDay = props.selectedDay.clone();
     for (let i = 0; i < this.props.reservations.length; i++) {
       const res = this.getReservationsForDay(iterator, props);
