@@ -7,6 +7,7 @@ import {
 import Reservation from './reservation';
 import PropTypes from 'prop-types';
 import XDate from 'xdate';
+import {parseDate} from '../../interface';
 
 import dateutils from '../../dateutils';
 import styleConstructor from './style';
@@ -176,7 +177,7 @@ class ReactComp extends Component {
 
     let reservations = [];
     let scrollPosition = 0;
-    const iterator = props.reservations.keys().next().value.clone();
+    const iterator = parseDate(Object.keys(props.reservations)[0]);
     const selectedDay = props.selectedDay.clone();
     for (let i = 0; i < this.props.reservations.length; i++) {
       const res = this.getReservationsForDay(iterator, props);
